@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Admin Ui
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Admin UI](image.png)
 
-## Available Scripts
+This is a user interface for admins to view and delete users. The interface retrieves user data from an API and provides various features to manage the user records. For more details about this task, visit [Admin UI Task](https://www.geektrust.com/coding/detailed/admin-ui).
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Column Titles:** The column titles are prominently displayed to distinguish them from the user entries.
+- **Search Bar:** A search bar is available to filter users based on any property.
+- **Edit and Delete:** Users can be edited or deleted directly within the interface. Note that these changes are only in memory and not persisted.
+- **Pagination:** Users are displayed in pages, with each page containing 10 rows. Pagination buttons allow easy navigation between pages, including options to jump to the first, previous, next, and last page. Pagination updates dynamically based on search and filtering results.
+- **Row Selection:** Users can select one or more rows by clicking the checkboxes. Selected rows are highlighted with a grayish background color. Multiple selected rows can be deleted simultaneously using the "Delete Selected" button at the bottom left.
+- **Select/Deselect All:** The checkbox at the top left corner provides a shortcut to select or deselect all rows displayed on the current page. It applies only to the 10 rows visible in the current page, not to all the rows.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The implementation of this user interface involves the following technologies:
 
-### `npm test`
+- HTML
+- CSS
+- Tailwind CSS
+- React
+- React table
+- Axios (for API communication)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+React-admin-ui is available from npm. You can install it (and its required dependencies)
+using:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install react-admin
+#or
+yarn add react-admin
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Users API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To retrieve the list of users and their properties, an API is provided. Here are the details:
 
-### `npm run eject`
+**Request Type:** GET
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Endpoint:** [https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json](https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Sample Response:**
+```json
+[
+  {
+    "id": "1",
+    "name": "Aaron Miles",
+    "email": "aaron@mailinator.com",
+    "role": "member"
+  },
+  {
+    "id": "2",
+    "name": "Aishwarya Naik",
+    "email": "aishwarya@mailinator.com",
+    "role": "member"
+  },
+  {
+    "id": "3",
+    "name": "Arvind Kumar",
+    "email": "arvind@mailinator.com",
+    "role": "admin"
+  }
+]
